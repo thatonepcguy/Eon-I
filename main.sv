@@ -221,7 +221,7 @@ module HDU (
         EXStall = 0;
         MMStall = 0;
 
-        if ((EXrs1 != 5'b0 || EXrs2 != 5'b0) && (EXrs1 == MMrd || EXrs2 == MMrd) && (MMrd != 5'b0) && (EXrs1 == WBrd || EXrs2 == WBrd) && (WBrd != 5'b0)) begin
+        if (((EXrs1 == MMrd || EXrs2 == MMrd) && (MMrd != 5'b0)) || ((EXrs1 == WBrd || EXrs2 == WBrd) && (WBrd != 5'b0))) begin
             EXStall = 1;
         end
     end

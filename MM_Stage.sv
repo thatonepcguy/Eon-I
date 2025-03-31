@@ -1,4 +1,8 @@
-module MM_Stage (
+module MM_Stage #(
+    parameter width = 32,
+    parameter adrWidth = 24,
+    parameter rsWidth = 5
+    )(
     input wire clk,
     input wire stallStart,
 
@@ -18,9 +22,7 @@ module MM_Stage (
     output wire stallOut
     );
 
-    parameter width = 32;
-    parameter adrWidth = 24;
-    parameter rsWidth = 5;
+    
 
     wire [width-1:0] dataOutWire;
 
@@ -65,7 +67,10 @@ module MM_Stage (
     assign stallOut = stallStart;
 endmodule
 
-module LSU ( // @suppress "File contains multiple design units"
+module LSU # (// @suppress "File contains multiple design units"
+    parameter width = 32,
+    parameter adrWidth = 24
+    )( 
     input wire [adrWidth-1:0] address,
     input wire [width-1:0] data,
     input wire [2:0] addressMode,
@@ -74,10 +79,6 @@ module LSU ( // @suppress "File contains multiple design units"
 
     output logic [width-1:0] dataOut
     );
-
-    parameter width = 32;
-    parameter adrWidth = 24;
-
 
     reg [7:0] Ram[2**adrWidth];
 

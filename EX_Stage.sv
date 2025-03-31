@@ -1,4 +1,8 @@
-module EX_Stage (
+module EX_Stage #(
+    parameter width = 32,
+    parameter rsWidth = 5,
+    parameter opcodeWidth = 7
+    )(
     input wire clk,
     input wire stall,
     input wire stallStart,
@@ -26,9 +30,7 @@ module EX_Stage (
     output wire [width-1:0] flushAddrOut
     );
 
-    parameter width = 32;
-    parameter rsWidth = 5;
-    parameter opcodeWidth = 7;
+    
 
     logic [width-1:0] valueOutWire;
 
@@ -36,9 +38,11 @@ module EX_Stage (
     logic [width-1:0] ALUinput2;
     logic [1:0] ALUoperation;
     logic [width-1:0] ALUOut;
+    
     /* verilator lint_off LATCH */
     always_comb begin
         flushAddrOut = PC;
+        flushOut = 0;
         if (opcode == 7'b0110011) begin
             ALUinput1 = reg1Value;
             ALUinput2 = reg2Value;
@@ -70,21 +74,19 @@ module EX_Stage (
             valueOutWire = PC + 32'h4;
         end else if (opcode == 7'b1100011) begin           // BRANCH
             case (func3)
-                3'h0 : flushAddrOut += (reg1Value == reg2Value) ? immediate : 0;
-                3'h1 : flushAddrOut += (reg1Value != reg2Value) ? immediate : 0;
-                3'h4 : flushAddrOut += ($signed(reg1Value) < $signed(reg2Value)) ? immediate : 0;
-                3'h5 : flushAddrOut += ($signed(reg1Value) >= $signed(reg2Value)) ? immediate : 0;
-                3'h6 : flushAddrOut += ($unsigned(reg1Value) < $unsigned(reg2Value)) ? immediate : 0;
-                3'h7 : flushAddrOut += ($unsigned(reg1Value) >= $unsigned(reg2Value)) ? immediate : 0;
+                3'h0 : flushAddrOut = (reg1Value == reg2Value) ? immediate + PC: 0;
+                3'h1 : flushAddrOut = (reg1Value != reg2Value) ? immediate + PC: 0;
+                3'h4 : flushAddrOut = ($signed(reg1Value) < $signed(reg2Value)) ? immediate + PC: 0;
+                3'h5 : flushAddrOut = ($signed(reg1Value) >= $signed(reg2Value)) ? immediate + PC: 0;
+                3'h6 : flushAddrOut = ($unsigned(reg1Value) < $unsigned(reg2Value)) ? immediate + PC: 0;
+                3'h7 : flushAddrOut = ($unsigned(reg1Value) >= $unsigned(reg2Value)) ? immediate + PC: 0;
                 default : flushAddrOut = PC;
             endcase   
         end else begin
             ALUinput1 = 32'h0;
             ALUinput2 = 32'h0;
             ALUoperation = 2'b0;
-            flushAddrOut = PC;
             valueOutWire = 32'h0;
-            flushOut = 0;
         end
 
         if (PC != flushAddrOut) begin
@@ -142,7 +144,9 @@ module EX_Stage (
     assign stallOut = stallStart;
 endmodule
 
-module ALU ( // @suppress "File contains multiple design units"
+module ALU #( // @suppress "File contains multiple design units"
+    parameter width = 32
+    )( 
     input logic [width-1:0] input1,
     input logic [width-1:0] input2,
     input logic [2:0] func3,
@@ -152,7 +156,7 @@ module ALU ( // @suppress "File contains multiple design units"
     output logic [width-1:0] output1
     );
 
-    parameter width = 32;
+    
 
     always_comb begin
         if (operation == 2'b0) begin                                                    // BASIC ARITHMETIC

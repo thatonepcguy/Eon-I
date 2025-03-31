@@ -1,4 +1,8 @@
-module DC_Stage (
+module DC_Stage #(
+    parameter width = 32,
+    parameter rsWidth = 5,
+    parameter opcodeWidth = 7
+    )(
     input wire clk,
     input wire stall,
     input wire flush,
@@ -20,15 +24,13 @@ module DC_Stage (
     output wire [width-1:0] flushAddrOut
     );
 
-    parameter width = 32;
-    parameter rsWidth = 5;
-    parameter opcodeWidth = 7;
+    
 
     always_ff @(posedge clk) begin
         
         PCOut <= PC;
         if (flush) begin
-            opcodeOut <= 0'b0110011;
+            opcodeOut <= 7'h13;
             rs1Out <= 5'b0;
             rs2Out <= 5'b0;
             rdOut <= 5'b0;
@@ -54,7 +56,7 @@ module DC_Stage (
                 rdOut <= instruction[11:7];
                 func3Out <= instruction[14:12];
                 func7Out <= 7'b0;
-                immediateOut <= {20'b0, instruction[31:20]};
+                immediateOut <= {{20{instruction[31]}}, instruction[31:20]};
                 
             // S_Type
             end else if (instruction[6:0] == 7'b0100011) begin
@@ -63,7 +65,7 @@ module DC_Stage (
                 rdOut <= 5'b0;
                 func3Out <= instruction[14:12];
                 func7Out <= 7'b0;
-                immediateOut <= {20'b0, instruction[31:25], instruction[11:7]};
+                immediateOut <= {{20{instruction[31]}}, instruction[31:25], instruction[11:7]};
             
             // B-Type
             end else if (instruction[6:0] == 7'b1100011) begin
@@ -72,7 +74,7 @@ module DC_Stage (
                 rdOut <= 5'b0;
                 func3Out <= instruction[14:12];
                 func7Out <= 7'b0;
-                immediateOut <= {19'b0, instruction[31], instruction[7], instruction[30:25], instruction[11:8], 1'b0};
+                immediateOut <= {{19{instruction[31]}}, instruction[31], instruction[7], instruction[30:25], instruction[11:8], 1'b0};
             
             // U-Type
             end else if (instruction[6:0] == 7'b0110111 || instruction[6:0] == 7'b0010111) begin
@@ -81,7 +83,7 @@ module DC_Stage (
                 rdOut <= instruction[11:7];
                 func3Out <= 3'b0;
                 func7Out <= 7'b0;
-                immediateOut <= {12'b0, instruction[31:12]};
+                immediateOut <= {instruction[31:12], 12'b0};
                 
             // J-Type
             end else if (instruction[6:0] == 7'b1101111) begin
@@ -90,7 +92,7 @@ module DC_Stage (
                 rdOut <= instruction[11:7];
                 func3Out <= 3'b0;
                 func7Out <= 7'b0;
-                immediateOut <= {11'b0, instruction[31], instruction[19:12],instruction[20], instruction[30:21], 1'b0};
+                immediateOut <= {{11{instruction[31]}}, instruction[31], instruction[19:12],instruction[20], instruction[30:21], 1'b0};
             end
         end
         
