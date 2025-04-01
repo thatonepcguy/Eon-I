@@ -1,6 +1,8 @@
 # Eon-I
 A Harvard Architecture RV32I CPU
 
+(Best viewing of the README is done in the downloaded file or by clicking view raw)
+
 Using Verilator
 
 To run a program:
