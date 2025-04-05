@@ -68,31 +68,45 @@ module EX_Stage #(
             ALUoperation = 2'b10;
         end else if (opcode == 7'b1101111) begin        // JAL
             flushAddrOut = PC + immediate;
+            flushOut = 1;
             valueOutWire = PC + 32'h4;
         end else if (opcode == 7'b1100111) begin        // JALR
             flushAddrOut = reg1Value + immediate;
             valueOutWire = PC + 32'h4;
+            flushOut = 1;
         end else if (opcode == 7'b1100011) begin           // BRANCH
             case (func3)
-                3'h0 : flushAddrOut = (reg1Value == reg2Value) ? immediate + PC: 0;
-                3'h1 : flushAddrOut = (reg1Value != reg2Value) ? immediate + PC: 0;
-                3'h4 : flushAddrOut = ($signed(reg1Value) < $signed(reg2Value)) ? immediate + PC: 0;
-                3'h5 : flushAddrOut = ($signed(reg1Value) >= $signed(reg2Value)) ? immediate + PC: 0;
-                3'h6 : flushAddrOut = ($unsigned(reg1Value) < $unsigned(reg2Value)) ? immediate + PC: 0;
-                3'h7 : flushAddrOut = ($unsigned(reg1Value) >= $unsigned(reg2Value)) ? immediate + PC: 0;
-                default : flushAddrOut = PC;
+                3'h0 : begin
+                    flushAddrOut = (reg1Value == reg2Value) ? immediate + PC: 0;
+                    flushOut = (reg1Value == reg2Value) ? 1 : 0;
+                end
+                3'h1 : begin
+                    flushAddrOut = (reg1Value != reg2Value) ? immediate + PC: 0;
+                    flushOut = (reg1Value != reg2Value) ? 1 : 0;
+                end
+                3'h4 : begin
+                    flushAddrOut = ($signed(reg1Value) < $signed(reg2Value)) ? immediate + PC: 0;
+                    flushOut = (reg1Value < reg2Value) ? 1 : 0;
+                end
+                3'h5 : begin
+                    flushAddrOut = ($signed(reg1Value) >= $signed(reg2Value)) ? immediate + PC: 0;
+                    flushOut = (reg1Value >= reg2Value) ? 1 : 0;
+                end
+                3'h6 : begin
+                    flushAddrOut = ($unsigned(reg1Value) < $unsigned(reg2Value)) ? immediate + PC: 0;
+                    flushOut = (reg1Value < reg2Value) ? 1 : 0;
+                end
+                3'h7 : begin
+                    flushAddrOut = ($unsigned(reg1Value) >= $unsigned(reg2Value)) ? immediate + PC: 0;
+                    flushOut = (reg1Value >= reg2Value) ? 1 : 0;
+                end
+                default : /* */;
             endcase   
         end else begin
             ALUinput1 = 32'h0;
             ALUinput2 = 32'h0;
             ALUoperation = 2'b0;
             valueOutWire = 32'h0;
-        end
-
-        if (PC != flushAddrOut) begin
-            flushOut = 1;
-        end else begin
-            flushOut = 0;
         end
     end
     /* verilator lint_on LATCH */

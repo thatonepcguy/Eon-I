@@ -34,3 +34,4 @@ if [ $? -ne 0 ]; then
 fi
 
 echo "Build successful: Binary file created as $BIN_FILE"
+

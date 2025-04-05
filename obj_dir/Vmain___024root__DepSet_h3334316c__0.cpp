@@ -130,9 +130,9 @@ VL_INLINE_OPT void Vmain___024root___nba_sequent__TOP__0(Vmain___024root* vlSelf
     }
     if (vlSelf->main__DOT__DCFlush_EXFlush) {
         vlSelf->main__DOT__DCfunc7Out_EXfunc7 = 0U;
+        vlSelf->main__DOT__DCimmediateOut_EXimmediate = 0U;
         vlSelf->main__DOT__DCrs1Out_RFrs1 = 0U;
         vlSelf->main__DOT__DCrs2Out_RFrs2 = 0U;
-        vlSelf->main__DOT__DCimmediateOut_EXimmediate = 0U;
         __Vdly__main__DOT__IF_Stage_instance__DOT__PC 
             = vlSelf->main__DOT__DCFlushAddr_EXFlushAddr;
         vlSelf->main__DOT__DCfunc3Out_EXfunc3 = 0U;
@@ -145,13 +145,13 @@ VL_INLINE_OPT void Vmain___024root___nba_sequent__TOP__0(Vmain___024root* vlSelf
             vlSelf->main__DOT__DCfunc7Out_EXfunc7 = 
                 (vlSelf->main__DOT__IFInstruction_DCInstruction 
                  >> 0x19U);
+            vlSelf->main__DOT__DCimmediateOut_EXimmediate = 0U;
             vlSelf->main__DOT__DCrs1Out_RFrs1 = (0x1fU 
                                                  & (vlSelf->main__DOT__IFInstruction_DCInstruction 
                                                     >> 0xfU));
             vlSelf->main__DOT__DCrs2Out_RFrs2 = (0x1fU 
                                                  & (vlSelf->main__DOT__IFInstruction_DCInstruction 
                                                     >> 0x14U));
-            vlSelf->main__DOT__DCimmediateOut_EXimmediate = 0U;
             vlSelf->main__DOT__DCfunc3Out_EXfunc3 = 
                 (7U & (vlSelf->main__DOT__IFInstruction_DCInstruction 
                        >> 0xcU));
@@ -162,15 +162,15 @@ VL_INLINE_OPT void Vmain___024root___nba_sequent__TOP__0(Vmain___024root* vlSelf
                      | (3U == (0x7fU & vlSelf->main__DOT__IFInstruction_DCInstruction))) 
                     | (0x67U == (0x7fU & vlSelf->main__DOT__IFInstruction_DCInstruction)))) {
             vlSelf->main__DOT__DCfunc7Out_EXfunc7 = 0U;
-            vlSelf->main__DOT__DCrs1Out_RFrs1 = (0x1fU 
-                                                 & (vlSelf->main__DOT__IFInstruction_DCInstruction 
-                                                    >> 0xfU));
-            vlSelf->main__DOT__DCrs2Out_RFrs2 = 0U;
             vlSelf->main__DOT__DCimmediateOut_EXimmediate 
                 = (((- (IData)((vlSelf->main__DOT__IFInstruction_DCInstruction 
                                 >> 0x1fU))) << 0xcU) 
                    | (vlSelf->main__DOT__IFInstruction_DCInstruction 
                       >> 0x14U));
+            vlSelf->main__DOT__DCrs1Out_RFrs1 = (0x1fU 
+                                                 & (vlSelf->main__DOT__IFInstruction_DCInstruction 
+                                                    >> 0xfU));
+            vlSelf->main__DOT__DCrs2Out_RFrs2 = 0U;
             vlSelf->main__DOT__DCfunc3Out_EXfunc3 = 
                 (7U & (vlSelf->main__DOT__IFInstruction_DCInstruction 
                        >> 0xcU));
@@ -179,12 +179,6 @@ VL_INLINE_OPT void Vmain___024root___nba_sequent__TOP__0(Vmain___024root* vlSelf
                                                   >> 7U));
         } else if ((0x23U == (0x7fU & vlSelf->main__DOT__IFInstruction_DCInstruction))) {
             vlSelf->main__DOT__DCfunc7Out_EXfunc7 = 0U;
-            vlSelf->main__DOT__DCrs1Out_RFrs1 = (0x1fU 
-                                                 & (vlSelf->main__DOT__IFInstruction_DCInstruction 
-                                                    >> 0xfU));
-            vlSelf->main__DOT__DCrs2Out_RFrs2 = (0x1fU 
-                                                 & (vlSelf->main__DOT__IFInstruction_DCInstruction 
-                                                    >> 0x14U));
             vlSelf->main__DOT__DCimmediateOut_EXimmediate 
                 = (((- (IData)((vlSelf->main__DOT__IFInstruction_DCInstruction 
                                 >> 0x1fU))) << 0xcU) 
@@ -192,18 +186,18 @@ VL_INLINE_OPT void Vmain___024root___nba_sequent__TOP__0(Vmain___024root* vlSelf
                                  >> 0x14U)) | (0x1fU 
                                                & (vlSelf->main__DOT__IFInstruction_DCInstruction 
                                                   >> 7U))));
-            vlSelf->main__DOT__DCfunc3Out_EXfunc3 = 
-                (7U & (vlSelf->main__DOT__IFInstruction_DCInstruction 
-                       >> 0xcU));
-            vlSelf->main__DOT__DCrdOut_EXrd = 0U;
-        } else if ((0x63U == (0x7fU & vlSelf->main__DOT__IFInstruction_DCInstruction))) {
-            vlSelf->main__DOT__DCfunc7Out_EXfunc7 = 0U;
             vlSelf->main__DOT__DCrs1Out_RFrs1 = (0x1fU 
                                                  & (vlSelf->main__DOT__IFInstruction_DCInstruction 
                                                     >> 0xfU));
             vlSelf->main__DOT__DCrs2Out_RFrs2 = (0x1fU 
                                                  & (vlSelf->main__DOT__IFInstruction_DCInstruction 
                                                     >> 0x14U));
+            vlSelf->main__DOT__DCfunc3Out_EXfunc3 = 
+                (7U & (vlSelf->main__DOT__IFInstruction_DCInstruction 
+                       >> 0xcU));
+            vlSelf->main__DOT__DCrdOut_EXrd = 0U;
+        } else if ((0x63U == (0x7fU & vlSelf->main__DOT__IFInstruction_DCInstruction))) {
+            vlSelf->main__DOT__DCfunc7Out_EXfunc7 = 0U;
             vlSelf->main__DOT__DCimmediateOut_EXimmediate 
                 = (((- (IData)((vlSelf->main__DOT__IFInstruction_DCInstruction 
                                 >> 0x1fU))) << 0xdU) 
@@ -217,6 +211,12 @@ VL_INLINE_OPT void Vmain___024root___nba_sequent__TOP__0(Vmain___024root* vlSelf
                                                    | (0x1eU 
                                                       & (vlSelf->main__DOT__IFInstruction_DCInstruction 
                                                          >> 7U))))));
+            vlSelf->main__DOT__DCrs1Out_RFrs1 = (0x1fU 
+                                                 & (vlSelf->main__DOT__IFInstruction_DCInstruction 
+                                                    >> 0xfU));
+            vlSelf->main__DOT__DCrs2Out_RFrs2 = (0x1fU 
+                                                 & (vlSelf->main__DOT__IFInstruction_DCInstruction 
+                                                    >> 0x14U));
             vlSelf->main__DOT__DCfunc3Out_EXfunc3 = 
                 (7U & (vlSelf->main__DOT__IFInstruction_DCInstruction 
                        >> 0xcU));
@@ -224,18 +224,16 @@ VL_INLINE_OPT void Vmain___024root___nba_sequent__TOP__0(Vmain___024root* vlSelf
         } else if (((0x37U == (0x7fU & vlSelf->main__DOT__IFInstruction_DCInstruction)) 
                     | (0x17U == (0x7fU & vlSelf->main__DOT__IFInstruction_DCInstruction)))) {
             vlSelf->main__DOT__DCfunc7Out_EXfunc7 = 0U;
-            vlSelf->main__DOT__DCrs1Out_RFrs1 = 0U;
-            vlSelf->main__DOT__DCrs2Out_RFrs2 = 0U;
             vlSelf->main__DOT__DCimmediateOut_EXimmediate 
                 = (0xfffff000U & vlSelf->main__DOT__IFInstruction_DCInstruction);
+            vlSelf->main__DOT__DCrs1Out_RFrs1 = 0U;
+            vlSelf->main__DOT__DCrs2Out_RFrs2 = 0U;
             vlSelf->main__DOT__DCfunc3Out_EXfunc3 = 0U;
             vlSelf->main__DOT__DCrdOut_EXrd = (0x1fU 
                                                & (vlSelf->main__DOT__IFInstruction_DCInstruction 
                                                   >> 7U));
         } else if ((0x6fU == (0x7fU & vlSelf->main__DOT__IFInstruction_DCInstruction))) {
             vlSelf->main__DOT__DCfunc7Out_EXfunc7 = 0U;
-            vlSelf->main__DOT__DCrs1Out_RFrs1 = 0U;
-            vlSelf->main__DOT__DCrs2Out_RFrs2 = 0U;
             vlSelf->main__DOT__DCimmediateOut_EXimmediate 
                 = (((- (IData)((vlSelf->main__DOT__IFInstruction_DCInstruction 
                                 >> 0x1fU))) << 0x15U) 
@@ -248,6 +246,8 @@ VL_INLINE_OPT void Vmain___024root___nba_sequent__TOP__0(Vmain___024root* vlSelf
                                                     | (0x7feU 
                                                        & (vlSelf->main__DOT__IFInstruction_DCInstruction 
                                                           >> 0x14U))))));
+            vlSelf->main__DOT__DCrs1Out_RFrs1 = 0U;
+            vlSelf->main__DOT__DCrs2Out_RFrs2 = 0U;
             vlSelf->main__DOT__DCfunc3Out_EXfunc3 = 0U;
             vlSelf->main__DOT__DCrdOut_EXrd = (0x1fU 
                                                & (vlSelf->main__DOT__IFInstruction_DCInstruction 
@@ -328,6 +328,7 @@ VL_INLINE_OPT void Vmain___024root___nba_sequent__TOP__0(Vmain___024root* vlSelf
                    | vlSelf->main__DOT__MM_Stage_instance__DOT__LSU_instance__DOT__Ram
                    [(0xffffffU & vlSelf->main__DOT__EXaddressOut_MMaddress)]));
     }
+    vlSelf->main__DOT__DCFlushAddr_EXFlushAddr = vlSelf->main__DOT__DCPCOut_EXPC;
     if ((0x33U == (IData)(vlSelf->main__DOT__DCopcodeOut_EXopcode))) {
         vlSelf->main__DOT__EX_Stage_instance__DOT__ALUoperation = 0U;
         vlSelf->main__DOT__EX_Stage_instance__DOT__ALUinput1 
@@ -428,7 +429,7 @@ VL_INLINE_OPT void Vmain___024root___nba_sequent__TOP__0(Vmain___024root* vlSelf
                                    + (vlSelf->main__DOT__EX_Stage_instance__DOT__ALUinput1 
                                       << 0xcU)))));
     vlSelf->main__DOT__IF_Stage_instance__DOT__PC = __Vdly__main__DOT__IF_Stage_instance__DOT__PC;
-    vlSelf->main__DOT__DCFlushAddr_EXFlushAddr = vlSelf->main__DOT__DCPCOut_EXPC;
+    vlSelf->main__DOT__DCFlush_EXFlush = 0U;
     if ((0x33U != (IData)(vlSelf->main__DOT__DCopcodeOut_EXopcode))) {
         if ((1U & (~ ((0x13U == (IData)(vlSelf->main__DOT__DCopcodeOut_EXopcode)) 
                       & ((5U == (IData)(vlSelf->main__DOT__DCfunc3Out_EXfunc3)) 
@@ -447,6 +448,7 @@ VL_INLINE_OPT void Vmain___024root___nba_sequent__TOP__0(Vmain___024root* vlSelf
                                 vlSelf->main__DOT__DCFlushAddr_EXFlushAddr 
                                     = (vlSelf->main__DOT__DCPCOut_EXPC 
                                        + vlSelf->main__DOT__DCimmediateOut_EXimmediate);
+                                vlSelf->main__DOT__DCFlush_EXFlush = 1U;
                             } else if ((0x67U == (IData)(vlSelf->main__DOT__DCopcodeOut_EXopcode))) {
                                 vlSelf->main__DOT__EX_Stage_instance__DOT__valueOutWire 
                                     = ((IData)(4U) 
@@ -454,67 +456,121 @@ VL_INLINE_OPT void Vmain___024root___nba_sequent__TOP__0(Vmain___024root* vlSelf
                                 vlSelf->main__DOT__DCFlushAddr_EXFlushAddr 
                                     = (vlSelf->main__DOT__RFr1Out_EXreg1Value 
                                        + vlSelf->main__DOT__DCimmediateOut_EXimmediate);
+                                vlSelf->main__DOT__DCFlush_EXFlush = 1U;
                             } else {
                                 if ((0x63U != (IData)(vlSelf->main__DOT__DCopcodeOut_EXopcode))) {
                                     vlSelf->main__DOT__EX_Stage_instance__DOT__valueOutWire = 0U;
                                 }
                                 if ((0x63U == (IData)(vlSelf->main__DOT__DCopcodeOut_EXopcode))) {
-                                    vlSelf->main__DOT__DCFlushAddr_EXFlushAddr 
-                                        = ((4U & (IData)(vlSelf->main__DOT__DCfunc3Out_EXfunc3))
-                                            ? ((2U 
-                                                & (IData)(vlSelf->main__DOT__DCfunc3Out_EXfunc3))
-                                                ? (
+                                    if ((4U & (IData)(vlSelf->main__DOT__DCfunc3Out_EXfunc3))) {
+                                        if ((2U & (IData)(vlSelf->main__DOT__DCfunc3Out_EXfunc3))) {
+                                            if ((1U 
+                                                 & (IData)(vlSelf->main__DOT__DCfunc3Out_EXfunc3))) {
+                                                if (
+                                                    (vlSelf->main__DOT__RFr1Out_EXreg1Value 
+                                                     >= vlSelf->main__DOT__RFr2Out_EXreg2Value)) {
+                                                    vlSelf->main__DOT__DCFlushAddr_EXFlushAddr 
+                                                        = 
+                                                        (vlSelf->main__DOT__DCimmediateOut_EXimmediate 
+                                                         + vlSelf->main__DOT__DCPCOut_EXPC);
+                                                    vlSelf->main__DOT__DCFlush_EXFlush 
+                                                        = 
+                                                        (1U 
+                                                         & 1U);
+                                                } else {
+                                                    vlSelf->main__DOT__DCFlushAddr_EXFlushAddr = 0U;
+                                                    vlSelf->main__DOT__DCFlush_EXFlush 
+                                                        = 
+                                                        (1U 
+                                                         & 0U);
+                                                }
+                                            } else if (
+                                                       (vlSelf->main__DOT__RFr1Out_EXreg1Value 
+                                                        < vlSelf->main__DOT__RFr2Out_EXreg2Value)) {
+                                                vlSelf->main__DOT__DCFlushAddr_EXFlushAddr 
+                                                    = 
+                                                    (vlSelf->main__DOT__DCimmediateOut_EXimmediate 
+                                                     + vlSelf->main__DOT__DCPCOut_EXPC);
+                                                vlSelf->main__DOT__DCFlush_EXFlush 
+                                                    = 
+                                                    (1U 
+                                                     & 1U);
+                                            } else {
+                                                vlSelf->main__DOT__DCFlushAddr_EXFlushAddr = 0U;
+                                                vlSelf->main__DOT__DCFlush_EXFlush 
+                                                    = 
+                                                    (1U 
+                                                     & 0U);
+                                            }
+                                        } else if (
                                                    (1U 
-                                                    & (IData)(vlSelf->main__DOT__DCfunc3Out_EXfunc3))
+                                                    & (IData)(vlSelf->main__DOT__DCfunc3Out_EXfunc3))) {
+                                            vlSelf->main__DOT__DCFlushAddr_EXFlushAddr 
+                                                = (
+                                                   VL_GTES_III(32, vlSelf->main__DOT__RFr1Out_EXreg1Value, vlSelf->main__DOT__RFr2Out_EXreg2Value)
                                                     ? 
-                                                   ((vlSelf->main__DOT__RFr1Out_EXreg1Value 
-                                                     >= vlSelf->main__DOT__RFr2Out_EXreg2Value)
-                                                     ? 
-                                                    (vlSelf->main__DOT__DCimmediateOut_EXimmediate 
-                                                     + vlSelf->main__DOT__DCPCOut_EXPC)
-                                                     : 0U)
-                                                    : 
-                                                   ((vlSelf->main__DOT__RFr1Out_EXreg1Value 
-                                                     < vlSelf->main__DOT__RFr2Out_EXreg2Value)
-                                                     ? 
-                                                    (vlSelf->main__DOT__DCimmediateOut_EXimmediate 
-                                                     + vlSelf->main__DOT__DCPCOut_EXPC)
-                                                     : 0U))
-                                                : (
-                                                   (1U 
-                                                    & (IData)(vlSelf->main__DOT__DCfunc3Out_EXfunc3))
+                                                   (vlSelf->main__DOT__DCimmediateOut_EXimmediate 
+                                                    + vlSelf->main__DOT__DCPCOut_EXPC)
+                                                    : 0U);
+                                            vlSelf->main__DOT__DCFlush_EXFlush 
+                                                = (1U 
+                                                   & ((vlSelf->main__DOT__RFr1Out_EXreg1Value 
+                                                       >= vlSelf->main__DOT__RFr2Out_EXreg2Value)
+                                                       ? 1U
+                                                       : 0U));
+                                        } else {
+                                            vlSelf->main__DOT__DCFlushAddr_EXFlushAddr 
+                                                = (
+                                                   VL_LTS_III(32, vlSelf->main__DOT__RFr1Out_EXreg1Value, vlSelf->main__DOT__RFr2Out_EXreg2Value)
                                                     ? 
-                                                   (VL_GTES_III(32, vlSelf->main__DOT__RFr1Out_EXreg1Value, vlSelf->main__DOT__RFr2Out_EXreg2Value)
-                                                     ? 
+                                                   (vlSelf->main__DOT__DCimmediateOut_EXimmediate 
+                                                    + vlSelf->main__DOT__DCPCOut_EXPC)
+                                                    : 0U);
+                                            vlSelf->main__DOT__DCFlush_EXFlush 
+                                                = (1U 
+                                                   & ((vlSelf->main__DOT__RFr1Out_EXreg1Value 
+                                                       < vlSelf->main__DOT__RFr2Out_EXreg2Value)
+                                                       ? 1U
+                                                       : 0U));
+                                        }
+                                    } else if ((1U 
+                                                & (~ 
+                                                   ((IData)(vlSelf->main__DOT__DCfunc3Out_EXfunc3) 
+                                                    >> 1U)))) {
+                                        if ((1U & (IData)(vlSelf->main__DOT__DCfunc3Out_EXfunc3))) {
+                                            if ((vlSelf->main__DOT__RFr1Out_EXreg1Value 
+                                                 != vlSelf->main__DOT__RFr2Out_EXreg2Value)) {
+                                                vlSelf->main__DOT__DCFlushAddr_EXFlushAddr 
+                                                    = 
                                                     (vlSelf->main__DOT__DCimmediateOut_EXimmediate 
-                                                     + vlSelf->main__DOT__DCPCOut_EXPC)
-                                                     : 0U)
-                                                    : 
-                                                   (VL_LTS_III(32, vlSelf->main__DOT__RFr1Out_EXreg1Value, vlSelf->main__DOT__RFr2Out_EXreg2Value)
-                                                     ? 
-                                                    (vlSelf->main__DOT__DCimmediateOut_EXimmediate 
-                                                     + vlSelf->main__DOT__DCPCOut_EXPC)
-                                                     : 0U)))
-                                            : ((2U 
-                                                & (IData)(vlSelf->main__DOT__DCfunc3Out_EXfunc3))
-                                                ? vlSelf->main__DOT__DCPCOut_EXPC
-                                                : (
-                                                   (1U 
-                                                    & (IData)(vlSelf->main__DOT__DCfunc3Out_EXfunc3))
-                                                    ? 
-                                                   ((vlSelf->main__DOT__RFr1Out_EXreg1Value 
-                                                     != vlSelf->main__DOT__RFr2Out_EXreg2Value)
-                                                     ? 
-                                                    (vlSelf->main__DOT__DCimmediateOut_EXimmediate 
-                                                     + vlSelf->main__DOT__DCPCOut_EXPC)
-                                                     : 0U)
-                                                    : 
-                                                   ((vlSelf->main__DOT__RFr1Out_EXreg1Value 
-                                                     == vlSelf->main__DOT__RFr2Out_EXreg2Value)
-                                                     ? 
-                                                    (vlSelf->main__DOT__DCimmediateOut_EXimmediate 
-                                                     + vlSelf->main__DOT__DCPCOut_EXPC)
-                                                     : 0U))));
+                                                     + vlSelf->main__DOT__DCPCOut_EXPC);
+                                                vlSelf->main__DOT__DCFlush_EXFlush 
+                                                    = 
+                                                    (1U 
+                                                     & 1U);
+                                            } else {
+                                                vlSelf->main__DOT__DCFlushAddr_EXFlushAddr = 0U;
+                                                vlSelf->main__DOT__DCFlush_EXFlush 
+                                                    = 
+                                                    (1U 
+                                                     & 0U);
+                                            }
+                                        } else if (
+                                                   (vlSelf->main__DOT__RFr1Out_EXreg1Value 
+                                                    == vlSelf->main__DOT__RFr2Out_EXreg2Value)) {
+                                            vlSelf->main__DOT__DCFlushAddr_EXFlushAddr 
+                                                = (vlSelf->main__DOT__DCimmediateOut_EXimmediate 
+                                                   + vlSelf->main__DOT__DCPCOut_EXPC);
+                                            vlSelf->main__DOT__DCFlush_EXFlush 
+                                                = (1U 
+                                                   & 1U);
+                                        } else {
+                                            vlSelf->main__DOT__DCFlushAddr_EXFlushAddr = 0U;
+                                            vlSelf->main__DOT__DCFlush_EXFlush 
+                                                = (1U 
+                                                   & 0U);
+                                        }
+                                    }
                                 }
                             }
                         }
@@ -523,8 +579,6 @@ VL_INLINE_OPT void Vmain___024root___nba_sequent__TOP__0(Vmain___024root* vlSelf
             }
         }
     }
-    vlSelf->main__DOT__DCFlush_EXFlush = (vlSelf->main__DOT__DCPCOut_EXPC 
-                                          != vlSelf->main__DOT__DCFlushAddr_EXFlushAddr);
     vlSelf->main__DOT__EXStall = 0U;
     if ((((((IData)(vlSelf->main__DOT__DCrs1Out_RFrs1) 
             == (IData)(vlSelf->main__DOT__EXrdOut_MMrd)) 

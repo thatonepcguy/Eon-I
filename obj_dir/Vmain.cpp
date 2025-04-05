@@ -65,14 +65,6 @@ void Vmain::eval_step() {
     Verilated::endOfEval(vlSymsp->__Vm_evalMsgQp);
 }
 
-void Vmain::eval_end_step() {
-    VL_DEBUG_IF(VL_DBG_MSGF("+eval_end_step Vmain::eval_end_step\n"); );
-#ifdef VM_TRACE
-    // Tracing
-    if (VL_UNLIKELY(vlSymsp->__Vm_dumping)) vlSymsp->_traceDump();
-#endif  // VM_TRACE
-}
-
 //============================================================
 // Events and timing
 bool Vmain::eventsPending() { return false; }

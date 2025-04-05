@@ -7,10 +7,6 @@ module main(
     input wire clk
     );
 
-    initial begin
-        $dumpvars;
-    end
-
     parameter width = 32;
     parameter rsWidth = 5;
     parameter opcodeWidth = 7;
